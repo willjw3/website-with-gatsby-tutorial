@@ -1,0 +1,27 @@
+html, body {
+    margin: 0;
+}
+
+.header {
+    background: navy;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-title {
+        margin: 0 50px;
+        color: white;
+        font-family: Special Elite;
+    }
+    &-links {
+        width: 30%;
+        margin: 0 50px;
+        display: flex;
+        justify-content: space-around;
+        & a {
+            color: white;
+            text-decoration: none;
+            font-family: Rubik;
+        }
+    }
+}
