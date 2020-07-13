@@ -5,11 +5,16 @@ import "../styles/header.scss"
 const Header = () => {
     return (
         <div className="header">
-            <h1 className="header-title">My Gatsby Site</h1>
-            <div className="header-links">
-                <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
+            <div className="header-top-content">
+              <Link className="header-top-content-title" to="/"><h1>My Gatsby Site</h1></Link>  
             </div>
+            <div className="header-bottom-content">
+            <div className="header-bottom-content-links">
+                    <Link className="header-bottom-content-links-link" to="/">Home</Link>
+                    <Link className="header-bottom-content-links-link" to="/about">About</Link>
+                </div>
+            </div>
+            
         </div>
     )
 }
