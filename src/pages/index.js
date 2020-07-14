@@ -6,7 +6,7 @@ const Index = () => {
     return (
         <Layout>
             <div className="index">
-                <h1>Welcome to my Gatsby Site</h1>
+                <h1 className="index-title">Welcome to my Gatsby Site.</h1>
             </div>
         </Layout>
        

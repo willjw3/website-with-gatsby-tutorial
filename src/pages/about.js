@@ -6,7 +6,7 @@ const About = () => {
     return (
         <Layout>
             <div className="about">
-                <h1>This is the "About" page.</h1>
+                <h1 className="about-title">This is the "About" page.</h1>
             </div>
         </Layout>
        
