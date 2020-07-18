@@ -1,4 +1,9 @@
 module.exports = {
+  siteMetadata: {
+    title: `Unsolicited Opinions`,
+    siteUrl: `https://www.google.com`,
+    description: `This is my rant blog. There are many like it, but this one is mine.`
+  },
     plugins: [
         `gatsby-plugin-sass`,
         {
