@@ -5,3 +5,4 @@
 <img src="https://codingthesmartway.com/wp-content/uploads/2019/02/gatsby-logo.png" width="100" />
 
 - [Part 1: Basic Setup - Static Pages and Links](https://youtu.be/3LdJEEYLhY8)
+- [Part 2: Basic Setup - Querying Data With GraphQL](https://youtu.be/EOw6bsUrdWs)
