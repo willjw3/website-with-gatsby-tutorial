@@ -14,7 +14,6 @@ const Header = () => {
             }
         }
     `)
-    console.log(data)
     return (
         <div className="header">
             <div className="header-top-content">
