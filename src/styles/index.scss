@@ -6,9 +6,13 @@ html, body {
 .index {
    display: flex;
    flex-direction: column;
-   align-items: center;
    font-family: Raleway;
    &-title {
        text-align: center;
    } 
+   &-main {
+       width: 50%;
+       margin: 100px auto;
+
+   }
 }

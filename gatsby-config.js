@@ -7,11 +7,12 @@ module.exports = {
     plugins: [
         `gatsby-plugin-sass`,
         `gatsby-transformer-json`,
+        `gatsby-transformer-remark`,
         {
           resolve: `gatsby-source-filesystem`,
           options: {
-            name: `data`,
-            path: `${__dirname}/data/`,
+            name: `posts`,
+            path: `${__dirname}/posts/`,
           },
         },
         {
