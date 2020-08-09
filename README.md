@@ -9,3 +9,4 @@
 - [Part 3: Transforming Data - JSON](https://youtu.be/N0jcGGo3Sew)
 - [Part 4: Transforming Data - Markdown](https://youtu.be/xHypkwtxkr0)
 - [Part 5: Adding Images With Gatsby Image](https://youtu.be/Fi9avF62jT4)
+- [Part 6: Creating Pages From Data](https://youtu.be/taGikBAtZFE)
