@@ -1,5 +1,9 @@
 .postblock {
     margin: 60px 0;
+    & a {
+        color: darkslategray;
+        text-decoration: none;
+    }
     &-title {
         margin-bottom: 0;
     }

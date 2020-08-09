@@ -34,6 +34,9 @@ query HomeQuery {
   allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
     edges {
       node {
+        fields {
+          slug
+        }
         excerpt(pruneLength: 700)
         frontmatter {
           author
