@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 import Img from "gatsby-image"
 import "../styles/postblock.scss"
 
@@ -6,7 +7,10 @@ const PostBlock = ({post}) => {
     console.log(post)
     return (
         <div className="postblock">
-            <h1 className="postblock-title">{post.node.frontmatter.title}</h1>
+            <Link to={post.node.fields.slug}>
+                <h1 className="postblock-title">{post.node.frontmatter.title}</h1>
+            </Link>
+            
             <small className="postblock-date">{post.node.frontmatter.date}</small>
             <hr/>
             <div className="postblock-image">
