@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../components/layout"
 import PostBlock from "../components/postblock"
 import "../styles/index.scss"
 
 const Index = ({data}) => {
-  const posts = data.allMarkdownRemark.edges
+  console.log(data)
+  const posts = data ? data.allMarkdownRemark.edges: ""
   console.log(posts)
     return (
         <Layout>
@@ -15,7 +16,7 @@ const Index = ({data}) => {
                 {posts && 
                     posts.map((post, i) => {
                       return (
-                      <PostBlock post={post} />
+                      <PostBlock key={i} post={post} />
                       )
                     })
                   }
@@ -30,15 +31,22 @@ export default Index
 
 export const query = graphql`
 query HomeQuery {
-  allMarkdownRemark {
+  allMarkdownRemark(sort: {fields: frontmatter___date, order: DESC}) {
     edges {
       node {
-        excerpt(pruneLength: 100)
+        excerpt(pruneLength: 700)
         frontmatter {
           author
           date(formatString: "MMMM DD, YYYY")
           published
           title
+          image {
+            childImageSharp {
+              fluid(maxWidth: 800){
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
         html
       }
