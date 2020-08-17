@@ -22,7 +22,9 @@ const Header = () => {
             <div className="header-bottom-content">
             <div className="header-bottom-content-links">
                     <Link className="header-bottom-content-links-link" to="/">Home</Link>
-                    <Link className="header-bottom-content-links-link" to="/about">About</Link>
+                    <Link className="header-bottom-content-links-link" to="/tags/entertainment">Entertainment</Link>
+                    <Link className="header-bottom-content-links-link" to="/tags/politics">Politics</Link>
+                    <Link className="header-bottom-content-links-link" to="/tags/sports">Sports</Link>
                 </div>
             </div>
             

@@ -3,6 +3,7 @@ title: My First Post
 date: 2020-07-30
 published: true
 author: Bob
+tags: ["entertainment", "movies"]
 image: ../src/images/anarchists_anonymous.jpg
 ---
 

@@ -4,25 +4,25 @@ import Img from "gatsby-image"
 import "../styles/postblock.scss"
 
 const PostBlock = ({post}) => {
+
     console.log(post)
+    let postImg = post.node.frontmatter.image ? post.node.frontmatter.image.childImageSharp.fluid : null
+
     return (
         <div className="postblock">
             <Link to={post.node.fields.slug}>
                 <h1 className="postblock-title">{post.node.frontmatter.title}</h1>
             </Link>
-            
-            <small className="postblock-date">{post.node.frontmatter.date}</small>
+            <small>{post.node.frontmatter.date}</small>
             <hr/>
-            <div className="postblock-image">
-                {post.node.frontmatter.image && 
-                    <Img 
-                        fluid={post.node.frontmatter.image.childImageSharp.fluid} 
-                        style={{width: "100%"}}
-                    />
-                }
-            </div>
-            {/* <div dangerouslySetInnerHTML={{__html: post.node.html}} /> */}
+            {postImg && 
+                <Img fluid={postImg} />
+            }
             <p>{post.node.excerpt}</p>
+            <Link to={post.node.fields.slug}>
+                <button>Read the Full Post</button>
+            </Link>
+            
         </div>
     )
 }

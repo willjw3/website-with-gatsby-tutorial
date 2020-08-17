@@ -3,6 +3,7 @@ title: My Second Post
 date: 2020-07-31
 published: true
 author: Bob
+tags: ["politics", "domestic"]
 image: ../src/images/eye_of_storm.jpg
 ---
 

@@ -1,25 +1,48 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import PostBlock from "../components/postblock"
+import PostList from "../components/postlist"
 import "../styles/index.scss"
 
 const Index = ({data}) => {
+
   console.log(data)
   const posts = data ? data.allMarkdownRemark.edges: ""
-  console.log(posts)
+  const entertainmentPosts = []
+  const politicsPosts = []
+  const sportsPosts = []
+
+  for (let i=0; i<posts.length; i++) {
+    if (posts[i].node.frontmatter.tags.includes("entertainment") && entertainmentPosts.length < 2) {
+      entertainmentPosts.push(posts[i])
+    }
+    if (posts[i].node.frontmatter.tags.includes("politics") && politicsPosts.length < 2) {
+      politicsPosts.push(posts[i])
+    }
+    if (posts[i].node.frontmatter.tags.includes("sports") && politicsPosts.length < 1) {
+      sportsPosts.push(posts[i])
+    }
+  }
+  
     return (
         <Layout>
             <div className="index">
-            <h1 className="index-title">Welcome to My Gatsby Site</h1>
               <div className="index-main">
-                {posts && 
-                    posts.map((post, i) => {
-                      return (
-                      <PostBlock key={i} post={post} />
-                      )
-                    })
-                  }
+                <div className="index-main-post">
+                  <PostBlock post={posts[0]} />
+                </div>
+                <div className="index-main-postlist">
+                  <h3>Entertainment</h3>
+                  <PostList posts={entertainmentPosts} />
+                  <hr/>
+                  <h3>Politics</h3>
+                  <PostList posts={politicsPosts} />
+                  <hr/>
+                  <h3>Sports</h3>
+                  <PostList posts={sportsPosts} />
+                  <hr/>
+                </div> 
               </div>  
             </div>
         </Layout>
@@ -43,6 +66,7 @@ query HomeQuery {
           date(formatString: "MMMM DD, YYYY")
           published
           title
+          tags
           image {
             childImageSharp {
               fluid(maxWidth: 800){
