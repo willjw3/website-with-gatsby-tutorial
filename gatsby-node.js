@@ -1,5 +1,6 @@
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const path = require("path")
+const _ = require("lodash")
 
 exports.createSchemaCustomization = ({ actions }) => {
     const { createTypes } = actions
@@ -30,6 +31,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   exports.createPages = async ({ graphql, actions }) => {
     const { createPage } = actions // highlight-line
     const postTemplate = path.resolve(`./src/templates/post.js`)
+    const tagTemplate = path.resolve("src/templates/tag.js")
     const result = await graphql(`
       query {
         allMarkdownRemark {
@@ -38,7 +40,15 @@ exports.createSchemaCustomization = ({ actions }) => {
               fields {
                 slug
               }
+              frontmatter {
+                tags
+              }
             }
+          }
+        }
+        tagsGroup: allMarkdownRemark(limit: 2000) {
+          group(field: frontmatter___tags) {
+            fieldValue
           }
         }
       }
@@ -56,6 +66,18 @@ exports.createSchemaCustomization = ({ actions }) => {
         },
         })
     })
+      // Extract tag data from query
+      const tags = result.data.tagsGroup.group
+      // Make tag pages
+      tags.forEach(tag => {
+        createPage({
+          path: `/tags/${_.kebabCase(tag.fieldValue)}/`,
+          component: tagTemplate,
+          context: {
+            tag: tag.fieldValue,
+          },
+        })
+      })
   
 
   }

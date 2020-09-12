@@ -10,6 +10,11 @@
         &-date {
             font-family: Rubik;
         }
+        &-tags {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+        }
         @media only screen and (max-width: 1300px) {
             width: 60%;
         }
