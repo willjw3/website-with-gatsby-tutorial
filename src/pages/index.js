@@ -20,7 +20,7 @@ const Index = ({data}) => {
     if (posts[i].node.frontmatter.tags.includes("politics") && politicsPosts.length < 2) {
       politicsPosts.push(posts[i])
     }
-    if (posts[i].node.frontmatter.tags.includes("sports") && politicsPosts.length < 1) {
+    if (posts[i].node.frontmatter.tags.includes("sports") && politicsPosts.length < 2) {
       sportsPosts.push(posts[i])
     }
   }
@@ -42,6 +42,9 @@ const Index = ({data}) => {
                   <h3>Sports</h3>
                   <PostList posts={sportsPosts} />
                   <hr/>
+                  <br/>
+                  <br/>
+                  <Link to="/archive" style={{fontStyle: "normal"}}><h3>Browse Archive</h3></Link>
                 </div> 
               </div>  
             </div>

@@ -23,6 +23,12 @@ html, body {
        &-postlist {
            width: 20%;
            text-align: center;
+           & a {
+               font-style: italic;
+               &:hover {
+                   color: dodgerblue;
+               }
+           }
            @media only screen and (max-width: 750px) {
             width: 80%;
         }
