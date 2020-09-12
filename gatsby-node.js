@@ -32,6 +32,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     const { createPage } = actions // highlight-line
     const postTemplate = path.resolve(`./src/templates/post.js`)
     const tagTemplate = path.resolve("src/templates/tag.js")
+    const archiveTemplate = path.resolve("src/templates/allposts.js")
     const result = await graphql(`
       query {
         allMarkdownRemark {
@@ -78,6 +79,23 @@ exports.createSchemaCustomization = ({ actions }) => {
           },
         })
       })
+
+      const posts = result.data.allMarkdownRemark.edges
+      const postsPerPage = 3
+      const numPages = Math.ceil(posts.length / postsPerPage)
+      Array.from({ length: numPages }).forEach((_, i) => {
+        createPage({
+          path: i === 0 ? `/archive` : `/archive/${i + 1}`,
+          component: archiveTemplate,
+          context: {
+            limit: postsPerPage,
+            skip: i * postsPerPage,
+            numPages,
+            currentPage: i + 1,
+          },
+        })
+      })
+
   
 
   }

@@ -20,7 +20,7 @@ const Index = ({data}) => {
     if (posts[i].node.frontmatter.tags.includes("politics") && politicsPosts.length < 2) {
       politicsPosts.push(posts[i])
     }
-    if (posts[i].node.frontmatter.tags.includes("sports") && politicsPosts.length < 2) {
+    if (posts[i].node.frontmatter.tags.includes("sports") && sportsPosts.length < 2) {
       sportsPosts.push(posts[i])
     }
   }
