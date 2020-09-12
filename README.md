@@ -11,3 +11,4 @@
 - [Part 5: Adding Images With Gatsby Image](https://youtu.be/Fi9avF62jT4)
 - [Part 6: Creating Pages From Data](https://youtu.be/taGikBAtZFE)
 - [Part 7: Adding Tags to Posts](https://youtu.be/qwLNfIxoGjs)
+- [Part 8: Implementing Pagination](https://youtu.be/6egmYh9LXr8)
